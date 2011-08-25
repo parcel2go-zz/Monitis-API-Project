@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76D43A61-B5AD-4DB9-986B-6469EA0FB4D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MonitisAPIWrapper</RootNamespace>
+    <AssemblyName>MonitisAPIWrapper</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\lib\logging\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="Newtonsoft.Json.Net35">
+      <HintPath>..\lib\Newtonsoft.Json.Net35.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomMonitors\Get\AdditionalCustomMonitorResultsGetter.cs" />
+    <Compile Include="Helper\AuthenticationTokenGetter.cs" />
+    <Compile Include="CustomMonitors\Parameters\DataType.cs" />
+    <Compile Include="CustomMonitors\Parameters\Results.cs" />
+    <Compile Include="CustomMonitors\Post\AdditonalCustomMonitorResultsAdder.cs" />
+    <Compile Include="CustomMonitors\Post\CustomMonitorAdder.cs" />
+    <Compile Include="CustomMonitors\Post\CustomMonitorDeleter.cs" />
+    <Compile Include="CustomMonitors\Post\CustomMonitorEditer.cs" />
+    <Compile Include="CustomMonitors\Get\CustomMonitorInfoGetter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomMonitors\Get\CustomMonitorLister.cs" />
+    <Compile Include="CustomMonitors\Post\CustomMonitorResultsAdder.cs" />
+    <Compile Include="CustomMonitors\Get\CustomMonitorResultsGetter.cs" />
+    <Compile Include="CustomMonitors\Responses\AuthenticationTokenResponse.cs" />
+    <Compile Include="JsonClassHelper.cs" />
+    <Compile Include="OutputType.cs" />
+    <Compile Include="CustomMonitors\Parameters\CustomMonitorParam.cs" />
+    <Compile Include="CustomMonitors\Parameters\ResultParam.cs" />
+    <Compile Include="CustomMonitors\Responses\CustomMonitorAdditionalResultResponse.cs" />
+    <Compile Include="CustomMonitors\Responses\CustomMonitorResultResponse.cs" />
+    <Compile Include="CustomMonitors\Parameters\Uom.cs" />
+    <Compile Include="PredefinedMonitors\CloudInstances\CloudInstancesGetter.cs" />
+    <Compile Include="PredefinedMonitors\CloudInstances\CloudInstancesInfoGetter.cs" />
+    <Compile Include="PredefinedMonitors\CloudInstances\Parameters\Type.cs" />
+    <Compile Include="PredefinedMonitors\CustomReportGetter.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Get\LocationsGetter.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Get\ExternalMonitorInfoGetter.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Get\ExternalMonitorResultsGetter.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Get\ExternalMonitorsByTagGetter.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Get\ExternalMonitorsGetter.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Get\SnapshotGetter.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Get\TagsGetter.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Parameters\ContentMatchFlag.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Parameters\DetailedTestType.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Parameters\Interval.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Parameters\LocationIds.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Parameters\OverSsl.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Parameters\Params.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Parameters\RequestType.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Post\ExternalMonitorActivator.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Post\ExternalMonitorAdder.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Post\ExternalMonitorDeleter.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Post\ExternalMonitorEditer.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Post\ExternalMonitorSuspender.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Responses\ExternalMonitorResultsResponse.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Responses\ExternalMonitorsByTagResponse.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Responses\LocationsResponse.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Responses\ExternalMonitorInfoResponse.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Responses\ExternalMonitorsResponse.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Responses\SnapshotResponse.cs" />
+    <Compile Include="PredefinedMonitors\ExternalMonitors\Responses\TagsResponse.cs" />
+    <Compile Include="PredefinedMonitors\FullPageLoadMonitors\Post\FullPageMonitorActivator.cs" />
+    <Compile Include="PredefinedMonitors\FullPageLoadMonitors\Post\FullPageMonitorAdder.cs" />
+    <Compile Include="PredefinedMonitors\FullPageLoadMonitors\Post\FullPageMonitorEditer.cs" />
+    <Compile Include="PredefinedMonitors\FullPageLoadMonitors\Post\FullPageMonitorSuspender.cs" />
+    <Compile Include="PredefinedMonitors\FullPageLoadMonitors\Responses\FullPageMonitorSuspendResponse.cs" />
+    <Compile Include="PredefinedMonitors\TopResultsGetter.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Get\StepCaptureGetter.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Get\StepNetGetter.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Get\StepResultsGetter.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Parameters\TransactionMonitorType.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Post\TransactionMonitorActivator.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Get\TransactionMonitorGetter.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Get\TransactionMonitorInfoGetter.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Get\TransactionMonitorResultsGetter.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Post\TransactionMonitorSuspender.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Response\TransactionMonitorInfoResponse.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Response\TransactionMonitorResponse.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Response\TransactionMonitorResultsResponse.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Response\TransactionMonitorSuspendResponse.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Response\StepCaptureResponse.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Response\StepNetResponse.cs" />
+    <Compile Include="PredefinedMonitors\TransactionMonitors\Response\StepResultsResponse.cs" />
+    <Compile Include="Validation.cs" />
+    <Compile Include="GetRequestSender.cs" />
+    <Compile Include="Helper\ChecksumCalculator.cs" />
+    <Compile Include="Helper\DateTimeExtensions.cs" />
+    <Compile Include="IRequestSender.cs" />
+    <Compile Include="PostRequestSender.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomMonitors\Responses\MonitorInfo\CustomMonitorInfoResponse.cs" />
+    <Compile Include="CustomMonitors\Responses\MonitorInfo\CustomMonitorParam.cs" />
+    <Compile Include="CustomMonitors\Responses\MonitorInfo\ResultParam.cs" />
+    <Compile Include="CustomMonitors\Responses\CustomMonitorListResponse.cs" />
+    <Compile Include="SimpleResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PredefinedMonitors\InternalMonitors\" />
+    <Folder Include="PredefinedMonitors\VisitorTrackers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

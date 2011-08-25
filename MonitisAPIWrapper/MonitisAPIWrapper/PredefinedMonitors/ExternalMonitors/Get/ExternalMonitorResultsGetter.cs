@@ -1,0 +1,95 @@
+﻿///    copyright parcel2go.com 2011 www.parcel2go.com
+///
+///    This program is free software: you can redistribute it and/or modify
+///    it under the terms of the GNU General Public License as published by
+///    the Free Software Foundation, either version 3 of the License, or
+///    (at your option) any later version.
+
+///    This program is distributed in the hope that it will be useful,
+///    but WITHOUT ANY WARRANTY; without even the implied warranty of
+///    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+///    GNU General Public License for more details.
+
+///    You should have received a copy of the GNU General Public License
+///    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Common.Logging;
+using MonitisAPIWrapper.PredefinedMonitors.ExternalMonitors.Responses;
+
+namespace MonitisAPIWrapper.PredefinedMonitors.ExternalMonitors.Get
+{
+    public class ExternalMonitorResultsGetter
+    {
+        public IRequestSender<List<ExternalMonitorResultsResponse>> RequestSender { get; set; } // send and receive
+        public ILog Log { get; set; } // log errors
+
+        // parameters sent
+        public int TestId { get; set; } // id of the test
+        public DateTime Date { get; set; } // date that results should be retrieved for
+        public List<int> LocationIds { get; set; } // comma separated ids of locations for which results should be retrieved. If not specified results will be retrieved for user's all locations.
+        public int? TimeZone { get; set; } // offset relative to GMT, used to show results in the timezone of the user
+        // parameters sent
+
+        public bool Success { get; private set; }
+        public List<ExternalMonitorResultsResponse> Result { get; private set; }
+
+        public ExternalMonitorResultsGetter(IRequestSender<List<ExternalMonitorResultsResponse>> requestSender, ILog log)
+        {
+            RequestSender = requestSender;
+            Log = log;
+            LocationIds = new List<int>();
+        }
+
+        public void Get()
+        {
+            try
+            {
+                RequestSender.PostData = BuildData();
+                RequestSender.Send();
+                Result = RequestSender.ResponseData;
+                Success = true;
+            }
+
+            catch (Exception exception)
+            {
+                Success = false;
+            }
+        }
+        
+        private Dictionary<string, object> BuildData()
+        {
+            var data = new Dictionary<string, object>();
+
+            // required parameters
+            data["testId"] = TestId;
+            data["day"] = Date.Day;
+            data["month"] = Date.Month;
+            data["year"] = Date.Year;
+
+            // optional parameters
+            if (LocationIds.Count > 0)
+                data["locationIds"] = CreateLocationIdsString();
+
+            if (TimeZone.HasValue)
+                data["timezone"] = TimeZone.Value;
+
+            return data;
+        }
+
+        private string CreateLocationIdsString()
+        {
+            var builder = new StringBuilder();
+
+            foreach (int id in LocationIds)
+            {
+                builder.Append(id + ",");
+            }
+
+            return builder.ToString();
+        }
+    }
+}

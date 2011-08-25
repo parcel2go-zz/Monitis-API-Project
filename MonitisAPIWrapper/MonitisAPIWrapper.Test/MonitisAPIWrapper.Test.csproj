@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{574E6BC7-23AB-4278-9348-49E086404B5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MonitisAPIWrapper.Test</RootNamespace>
+    <AssemblyName>MonitisAPIWrapper.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\lib\autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\lib\autofac\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\lib\logging\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\testing\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomMonitorsTests\AdditionalMonitorResultsAdderTester.cs" />
+    <Compile Include="CustomMonitorsTests\AdditionalMonitorResultsGetterTester.cs" />
+    <Compile Include="CustomMonitorsTests\MonitorEditorTests.cs" />
+    <Compile Include="CustomMonitorsTests\MonitorResultsGetterTests.cs" />
+    <Compile Include="DependencyInjection\AutofacTypeRegistrar.cs" />
+    <Compile Include="DependencyInjection\ExternalMonitorDependentTest.cs" />
+    <Compile Include="DependencyInjection\InjectedTest.cs" />
+    <Compile Include="DependencyInjection\CustomMonitorDependentTest.cs" />
+    <Compile Include="HelperTests\AuthenticationTokenGetterTests.cs" />
+    <Compile Include="HelperTests\ChecksumCalculatorTests.cs" />
+    <Compile Include="CustomMonitorsTests\MonitorAdderTests.cs" />
+    <Compile Include="CustomMonitorsTests\MonitorDeleterTest.cs" />
+    <Compile Include="CustomMonitorsTests\MonitorInfoGetterTests.cs" />
+    <Compile Include="CustomMonitorsTests\MonitorListerTests.cs" />
+    <Compile Include="CustomMonitorsTests\MonitorResultsAdderTests.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\LocationsGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\MonitorActivatorTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\MonitorAdderTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\MonitorDeleterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\MonitorEditerTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\MonitorsGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\MonitorInfoGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\MonitorResultsGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\MonitorsByTagGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\MonitorSuspenderTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\SnapshotGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\ExternalMonitorsTests\TagsGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\FullPageLoadMonitorsTests\MonitorActivatorTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\FullPageLoadMonitorsTests\MonitorAdderTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\FullPageLoadMonitorsTests\MonitorEditerTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\FullPageLoadMonitorsTests\MonitorSuspenderTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\TransactionMonitorsTests\MonitorActivatorTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\TransactionMonitorsTests\MonitorsGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\TransactionMonitorsTests\MonitorsInfoGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\TransactionMonitorsTests\MonitorsResultsGetterTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\TransactionMonitorsTests\MonitorSuspenderTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\TransactionMonitorsTests\StepCaptureTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\TransactionMonitorsTests\StepNetTester.cs" />
+    <Compile Include="PredefinedMonitorsTests\TransactionMonitorsTests\StepResultsGetterTester.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonitisAPIWrapper\MonitisAPIWrapper.csproj">
+      <Project>{76D43A61-B5AD-4DB9-986B-6469EA0FB4D0}</Project>
+      <Name>MonitisAPIWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PredefinedMonitorsTests\CloudInstancesTests\" />
+    <Folder Include="PredefinedMonitorsTests\InternalMonitorsTests\" />
+    <Folder Include="PredefinedMonitorsTests\VisitorTrackersTests\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
